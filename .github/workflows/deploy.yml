@@ -39,4 +39,4 @@ jobs:
             sudo docker pull rajeshkumar121995/simple_express_cicd
             sudo docker stop web-app || true
             sudo docker rm web-app || true
-            sudo docker run -d --name web-app -p 8000:8000 -e PORT=8000 rajeshkumar121995/simple_express_cicd
+            sudo docker run -d --name web-app -p 8000:8000 -e PORT=${{ secrets.PORT }} rajeshkumar121995/simple_express_cicd
