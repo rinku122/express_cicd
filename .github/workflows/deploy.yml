@@ -26,17 +26,17 @@ jobs:
           push: true
           tags: rajeshkumar121995/simple_express_cicd
 
-      # - name: Verify Pushed Image
-      #   run: docker pull 100xdevs/web-app:latest
+      - name: Verify Pushed Image
+        run: docker pull rajeshkumar121995/simple_express_cicd
 
-      # - name: Deploy to EC2
-      #   uses: appleboy/ssh-action@master
-      #   with:
-      #     host: ${{ secrets.SSH_HOST }}
-      #     username: ${{ secrets.SSH_USERNAME }}
-      #     key: ${{ secrets.SSH_KEY }}
-      #     script: |
-      #       sudo docker pull 100xdevs/web-app:latest
-      #       sudo docker stop web-app || true
-      #       sudo docker rm web-app || true
-      #       sudo docker run -d --name web-app -p 3005:3000 100xdevs/web-app:latest
+      - name: Deploy to EC2
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            sudo docker pull rajeshkumar121995/simple_express_cicd
+            sudo docker stop web-app || true
+            sudo docker rm web-app || true
+            sudo docker run -d --name web-app -p 3000:3000 rajeshkumar121995/simple_express_cicd
