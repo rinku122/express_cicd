@@ -42,8 +42,7 @@ jobs:
             sudo docker run -d --name web-app -p 3000:3000 rajeshkumar121995/simple_express_cicd
 
       - name: Install nginx
-        run: sudo apt update
-        run: sudo apt install nginx
+        run: sudo apt update && sudo apt install -y nginx
 
       # - name: Install nginx
       #   run: sudo apt update
