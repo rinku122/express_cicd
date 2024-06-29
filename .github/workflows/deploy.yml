@@ -39,37 +39,4 @@ jobs:
             sudo docker pull rajeshkumar121995/simple_express_cicd
             sudo docker stop web-app || true
             sudo docker rm web-app || true
-            sudo docker run -d --name web-app -p 3000:3000 rajeshkumar121995/simple_express_cicd
-
-      - name: Install nginx
-        run: sudo apt update && sudo apt install -y nginx
-
-      # - name: Install nginx
-      #   run: sudo apt update
-      #   run: sudo apt install nginx
-
-      # - name: Write Configration for NGINx
-      #   with:
-      #     script: |
-      #       sudo tee /etc/nginx/nginx.conf > /dev/null << 'EOF'
-      #       events {
-      #           # Event directives...
-      #       }
-
-      #       http {
-      #           server {
-      #               listen 80;
-      #               server_name ${{ secrets.SSH_HOST }};
-
-      #               location / {
-      #                   proxy_pass http://localhost:3000;
-      #                   proxy_http_version 1.1;
-      #                   proxy_set_header Upgrade \$http_upgrade;
-      #                   proxy_set_header Connection 'upgrade';
-      #                   proxy_set_header Host \$host;
-      #                   proxy_cache_bypass \$http_upgrade;
-      #               }
-      #           }
-      #       }
-      #       EOF
-      #       sudo nginx -s reload
+            sudo docker run -d --name web-app -p 8000:8000 -e PORT=8000 rajeshkumar121995/simple_express_cicd
