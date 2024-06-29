@@ -41,10 +41,8 @@ jobs:
             sudo docker rm web-app || true
             sudo docker run -d --name web-app -p 3000:3000 rajeshkumar121995/simple_express_cicd
 
-      - name: Deploy to EC2
-          script: |
-            sudo apt update
-            sudo apt install nginx
+      - name: Install nginx
+        run: sudo apt update && sudo apt install nginx
 
       # - name: Install nginx
       #   run: sudo apt update
